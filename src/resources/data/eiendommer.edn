@@ -1,0 +1,41 @@
+[{:db/id #db/id [db.part/db]
+  :db/ident :object/name
+  :db/doc "Matrikkel identifikator"
+  :db/valueType :db.type/string
+  :db/index true
+  :db/cardinality :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+ {:db/id #db/id [db.part/db]
+  :db/ident :object/verdi
+  :db/doc "Verdien på eiendommen"
+  :db/index true
+  :db/valueType :db.type/double
+  :db/cardinality :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+ {:db/id #db/id [db.part/db]
+  :db/ident :data/source
+  :db/doc "Source of the data in a transaction."
+  :db/valueType :db.type/string
+  :db/index true
+  :db/cardinality :db.cardinality/one
+  :db.install/_attribute :db.part/db}]
+[{:db/id #db/id [db.part/tx]
+  :db/doc "Fiktive data"}
+ {:db/id #db/id [db.part/tx]
+  :data/source "Fiktive data"}
+ {:db/id #db/id [db.part/user]
+  :object/name "30/30/10"
+  :object/verdi 696000.0}
+ {:db/id #db/id [db.part/user]
+  :object/name "30/31/10"
+  :object/verdi 196000.0}
+ {:db/id #db/id [db.part/user]
+  :object/name "10/31/10"
+  :object/verdi 396000.0}
+ {:db/id #db/id [db.part/user]
+  :object/name "10/10/2"
+  :object/verdi 1396000.0}
+ {:db/id #db/id [db.part/user]
+  :object/name "3/3/3"
+  :object/verdi 10396000.0}
+ ]

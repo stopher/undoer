@@ -1,0 +1,1 @@
+mvn exec:java -Dexec.mainClass="datomic.samples.Eiendommer"
