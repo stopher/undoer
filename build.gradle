@@ -1,0 +1,42 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.0.M6'
+	}
+	repositories {
+		mavenCentral()
+		maven { url "https://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/milestone" }
+
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'no.egde'
+version = '0.0.2-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven { url "https://repo.spring.io/snapshot" }
+	maven { url "https://repo.spring.io/milestone" }
+	maven {url "http://files.datomic.com/maven" }
+	maven {url "http://oss.sonatype.org/content/repositories/releases" }
+	maven { url "http://clojars.org/repo" }
+	maven { url "https://repository.jboss.org/nexus/content/groups/public"}
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-jersey')
+	compile('com.datomic:datomic-free:0.9.5350')
+	compile('ch.qos.logback:logback-classic')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+

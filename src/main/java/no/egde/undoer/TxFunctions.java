@@ -1,4 +1,4 @@
-package datomic.samples;
+package no.egde.undoer;
 
 import datomic.Connection;
 import datomic.Database;
@@ -15,9 +15,15 @@ import static datomic.Peer.tempid;
 import static datomic.Peer.toT;
 import static datomic.Peer.function;
 import static datomic.Util.list;
-import static datomic.samples.Fns.scratchConnection;
+
 import static datomic.Util.map;
 import static datomic.Util.read;
+import java.util.UUID;
+import datomic.Peer;
+
+import datomic.Connection;
+import java.util.Collection;
+import java.util.Iterator;
 
 public class TxFunctions {
 
@@ -90,7 +96,10 @@ public class TxFunctions {
 
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
         // get a connection to a new scratch db and install transactor function
-        Connection conn = scratchConnection();
+        String uri = "datomic:mem://" + UUID.randomUUID();
+        Peer.createDatabase(uri);
+        Connection conn =Peer.connect(uri);
+
         Map installResult = ensureCompositeInstall(conn);
         // work with database after txFunction has been installed
         Database dbAfter = (Database) installResult.get(read(":db-after"));

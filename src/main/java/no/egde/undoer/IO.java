@@ -1,4 +1,4 @@
-package datomic.samples;
+package no.egde.undoer;
 
 import datomic.Connection;
 import datomic.Util;
